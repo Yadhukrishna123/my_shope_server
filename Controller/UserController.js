@@ -75,7 +75,7 @@ exports.userlogin = async (req, res) => {
 
 exports.userAddress = async (req, res) => {
     const userId = req.user.id;
-    // console.log("User ID from token:", userId);
+   
     const {
         fullName,
         phone,
@@ -105,7 +105,7 @@ exports.userAddress = async (req, res) => {
             landMark
         };
 
-        // console.log("WEFwe", user);
+       
         
         const updatedUser = await Users.findByIdAndUpdate(
             userId,
@@ -124,7 +124,7 @@ exports.userAddress = async (req, res) => {
         res.status(200).json({
             success: true,
             message: "Youe registration is successfully completed",
-            addresses: user.addresses
+            addresses: updatedUser.addresses
         });
 
     } catch (error) {
